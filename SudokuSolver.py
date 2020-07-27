@@ -29,17 +29,13 @@ def getPosition(rowCol):
 
 # validates number being placed, checks row, column and 3x3 grid
 def isValid(row, col, num, board):
-	isRowValid = True
-	isColValid = True
-	isGridValid = True
-
 	for i in range(0,9):
 		if (board[row][i] == num):
-			isRowValid = False
+			Return False
 
 	for i in range(0,9):
 		if (board[i][col] == num):
-			isColValid = False
+			Return False
 
 	xpos = getPosition(col)
 	ypos = getPosition(row)
@@ -47,9 +43,9 @@ def isValid(row, col, num, board):
 	for i in range(0,3):
 		for j in range(0,3):
 			if (board[ypos+i][xpos+j] == num):
-				isGridValid = False
+				Return False
 
-	return(isRowValid and isColValid and isGridValid)
+	return True
 
 # utilizes backtracking algorithm to solve board
 def solve(board):
@@ -68,6 +64,7 @@ def solve(board):
 			if (solve(board)):
 				return True
 	board[row][col] = 0
+	return False
 
 
 board = [
