@@ -67,6 +67,7 @@ def solve(board):
 	return False
 
 
+# can replace this sudoku with another one, this was for testing
 board = [
 		[0,7,0,0,0,0,0,0,9],
 		[5,1,0,4,2,0,6,0,0],
